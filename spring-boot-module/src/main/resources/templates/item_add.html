@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add item</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <form action="/items" method="post" th:action="@{/items}">
+                <div class="form-group">
+                    <span th:errors="*{item.name}" th:if="${#fields.hasErrors('item.name')}">Name Error</span><br>
+                    <label for="item.name">Name</label>
+                    <input class="form-control" id="item.name" th:field="*{item.name}" type="text"><br>
+                    <span th:errors="*{item.description}" th:if="${#fields.hasErrors('item.description')}">Description Error</span><br>
+                    <label for="description">Description</label>
+                    <input class="form-control" id="description" th:field="*{item.description}" type="text"><br>
+                    <span th:errors="*{item.price}" th:if="${#fields.hasErrors('item.price')}">Price Error</span><br>
+                    <label for="price">Price</label>
+                    <input class="form-control" id="price" th:field="*{item.price}" type="text"><br>
+                    <tr th:text="${error}">Shop Name Error</tr>
+                    <br>
+                    <label for="shopName">Shop Name</label>
+                    <input class="form-control" id="shopName" th:field="*{shop.shopName}" type="text"><br>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+</body>
+</html>

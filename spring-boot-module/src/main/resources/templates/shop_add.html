@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add shop</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <form action="/shops" method="post" th:action="@{/shops}" th:object="${shop}">
+                <div class="form-group">
+                    <span th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Name Error</span><br>
+                    <label for="shopName">Name</label>
+                    <input class="form-control" id="shopName" th:field="*{shopName}" type="text"><br>
+                    <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location Error</span><br>
+                    <label for="location">Location</label>
+                    <input class="form-control" id="location" th:field="*{location}" type="text">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+</body>
+</html>
